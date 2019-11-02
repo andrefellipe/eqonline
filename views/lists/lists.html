@@ -1,0 +1,202 @@
+<div class="container border-os header-os">
+	<div class="row align-items-center justify-content-between">
+		<div class="col-sm-auto">
+			<img src="/resources/order/images/logo.png">
+		</div>
+		<div class="col-sm-auto">
+			<h2>Departamento de Serviços Técnicos</h2>
+			<h1>Lista de Material</h1>
+		</div>
+		<div class="col-sm-auto">
+			<h3>Nº</h3>
+			<hr>
+			<h3>{$info.id_proposal}</h3>
+		</div>
+	</div>
+</div>
+
+<div class="container border-os infos-os">
+
+	<div class="row">
+		<div class="col">
+			<p>Número da Proposta: <strong>{$info.id_proposal}</strong></p>
+		</div>
+		<div class="col">
+			<p>Cliente: <strong>{$info.des_client_name}</strong></p>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col">
+			<p>Serviço: <strong>{$info.des_service}</strong></p>
+		</div>
+		<div class="col">
+			<p>Data de Emissão: <strong>{$info.dt_emission}</strong></p>
+		</div>
+	</div>
+
+</div>
+
+<table style="width:100%" class="container">
+
+	<tr>
+		<td><strong>NOME</strong></td>
+		<td><strong>UNIDADE</strong></td>
+		<td><strong>QUANTIDADE</strong></td>
+	</tr>
+
+
+	{loop="$materials"}
+	<tr>
+		<td>{$value.des_description}</td>
+		<td>{$value.des_reduced_measure_unit}</td> 
+		<td>{function="formatPriceComma($value.qtd_material)"}</td>
+	</tr>
+	{/loop}
+</table>
+
+<div class="pagebreak"> </div>
+
+<div class="container border-os header-os">
+	<div class="row align-items-center justify-content-between">
+		<div class="col-sm-auto">
+			<img src="/resources/order/images/logo.png">
+		</div>
+		<div class="col-sm-auto">
+			<h2>Departamento de Serviços Técnicos</h2>
+			<h1>Lista de Material Completa</h1>
+		</div>
+		<div class="col-sm-auto">
+			<h3>Nº</h3>
+			<hr>
+			<h3>{$info.id_proposal}</h3>
+		</div>
+	</div>
+</div>
+
+<div class="container border-os infos-os">
+
+	<div class="row">
+		<div class="col">
+			<p>Número da Proposta: <strong>{$info.id_proposal}</strong></p>
+		</div>
+		<div class="col">
+			<p>Cliente: <strong>{$info.des_client_name}</strong></p>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col">
+			<p>Serviço: <strong>{$info.des_service}</strong></p>
+		</div>
+		<div class="col">
+			<p>Data de Emissão: <strong>{$info.dt_emission}</strong></p>
+		</div>
+	</div>
+
+</div>
+
+<table style="width:100%" class="container">
+
+	<tr>
+		<td><strong>NOME</strong></td>
+		<td><strong>UNIDADE</strong></td>
+		<td><strong>QUANTIDADE</strong></td>
+		<td><strong>COMPRA (R$)</strong></td>
+		<td><strong>VENDA (R$)</strong></td>
+		<td><strong>TOTAL (R$)</strong></td>
+	</tr>
+
+
+	{loop="$materialsM"}
+	<tr>
+		<td>{$value.des_description}</td>
+		<td>{$value.des_reduced_measure_unit}</td> 
+		<td>{function="formatPriceComma($value.qtd_material)"}</td>
+		<td>{function="formatPriceComma($value.vl_purchase_price)"}</td>
+		<td>{function="formatPriceComma($value.vl_sell_price)"}</td>
+		<td>{function="formatPriceComma($value.final_priceM)"}</td>
+	</tr>
+	{/loop}
+</table>
+
+<div class="container prices">
+	<p>Material: <strong>R$ {function="formatPriceComma($proposal.vl_material)"}</strong></p>
+	<p>Serviço: <strong>R$ {function="formatPriceComma($proposal.vl_service)"}</strong></p>
+	<p>Material com Fator de Compra: <strong>R$ {function="formatPriceComma($proposal.vl_material_buy)"}</strong></p>
+	<p>Serviço com Fator de Risco: <strong>R$ {function="formatPriceComma($proposal.vl_service_risk)"}</strong></p>
+	<p>Preço de Horário Comercial: <strong>R$ {function="formatPriceComma($proposal.vl_price_commercial)"}</strong></p>
+	<p>Preço de Horário Não-Comercial: <strong>R$ {function="formatPriceComma($proposal.vl_price_non_commercial)"}</strong></p>
+</div>
+
+<div class="pagebreak"> </div>
+
+<div class="container border-os header-os">
+	<div class="row align-items-center justify-content-between">
+		<div class="col-sm-auto">
+			<img src="/resources/order/images/logo.png">
+		</div>
+		<div class="col-sm-auto">
+			<h2>Departamento de Serviços Técnicos</h2>
+			<h1>Lista de Serviços</h1>
+		</div>
+		<div class="col-sm-auto">
+			<h3>Nº</h3>
+			<hr>
+			<h3>{$info.id_proposal}</h3>
+		</div>
+	</div>
+</div>
+
+<div class="container border-os infos-os">
+
+	<div class="row">
+		<div class="col">
+			<p>Número da Proposta: <strong>{$info.id_proposal}</strong></p>
+		</div>
+		<div class="col">
+			<p>Cliente: <strong>{$info.des_client_name}</strong></p>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col">
+			<p>Serviço: <strong>{$info.des_service}</strong></p>
+		</div>
+		<div class="col">
+			<p>Data de Emissão: <strong>{$info.dt_emission}</strong></p>
+		</div>
+	</div>
+
+</div>
+
+<table style="width:100%" class="container">
+
+	<tr>
+		<td><strong>NOME</strong></td>
+		<td><strong>UNIDADE</strong></td>
+		<td><strong>QUANTIDADE</strong></td>
+		<td><strong>PREÇO (R$)</strong></td>
+		<td><strong>TOTAL (R$)</strong></td>
+	</tr>
+
+
+	{loop="$services"}
+	<tr>
+		<td>{$value.des_description}</td>
+		<td>{$value.des_unit}</td> 
+		<td>{function="formatPriceComma($value.qtd_service)"}</td>
+		<td>{function="formatPriceComma($value.vl_price)"}</td>
+		<td>{function="formatPriceComma($value.final_priceS)"}</td>
+	</tr>
+	{/loop}
+</table>
+
+<div class="container prices">
+	<p>Material: <strong>R$ {function="formatPriceComma($proposal.vl_material)"}</strong></p>
+	<p>Serviço: <strong>R$ {function="formatPriceComma($proposal.vl_service)"}</strong></p>
+	<p>Material com Fator de Compra: <strong>R$ {function="formatPriceComma($proposal.vl_material_buy)"}</strong></p>
+	<p>Serviço com Fator de Risco: <strong>R$ {function="formatPriceComma($proposal.vl_service_risk)"}</strong></p>
+	<p>Preço de Horário Comercial: <strong>R$ {function="formatPriceComma($proposal.vl_price_commercial)"}</strong></p>
+	<p>Preço de Horário Não-Comercial: <strong>R$ {function="formatPriceComma($proposal.vl_price_non_commercial)"}</strong></p>
+</div>

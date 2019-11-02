@@ -1,0 +1,75 @@
+<div class="content-wrapper">
+	<section class="content-header">
+		<div class="container-fluid">
+			<div class="row mb-2">
+				<div class="col-sm-6">
+					<h1>Maletas</h1>
+				</div>
+				<div class="col-sm-6">
+					<ol class="breadcrumb float-sm-right">
+						<li class="breadcrumb-item"><a href="/admin">Início</a></li>
+						<li class="breadcrumb-item active">Maletas</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="content">
+		<div class="row">
+			<div class="col-12">
+				<div class="card">
+
+					<div class="card-header">
+						<a href="/admin/warehouse/toolboxes/create" class="btn btn-success">Cadastrar Maleta</a>
+					</div>
+
+					{if="$msgError != ''"}
+					<div class="alert alert-danger alert-dismissible" style="margin:10px">
+						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+						<p>{$msgError}</p>
+					</div>
+					{/if}
+					{if="$msgSuccess != ''"}
+					<div class="alert alert-info alert-dismissible" style="margin:10px">
+						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+						<p>{$msgSuccess}</p>
+					</div>
+					{/if}
+
+					<div class="card-body table-responsive">
+						<table id="search-table" class="table table-bordered table-striped">
+
+							<thead>
+								<tr>
+									<th>Código</th>
+									<th>Descrição</th>
+									<th>Responsável</th>
+									<th>Opções</th>
+								</tr>
+							</thead>
+
+							<tbody>
+
+								{loop="$toolboxes"}
+								<tr>
+									<td>{$value.id_toolbox}</td>
+									<td>{$value.des_description}</td>
+									<td>{$value.des_name}</td>
+									<td>
+										<a href="/admin/warehouse/toolboxes/{$value.id_toolbox}" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Editar</a>
+										<a href="/admin/warehouse/toolboxes/{$value.id_toolbox}/inspections" class="btn btn-primary btn-sm"><i class="fa fa-search-location"></i> Vistorias</a>
+										<a href="/admin/warehouse/toolboxes/{$value.id_toolbox}/delete" onclick="return confirm('Deseja realmente excluir esta maleta?')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Excluir</a>
+									</td>
+								</tr>
+								{/loop}
+
+							</tbody>
+
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>

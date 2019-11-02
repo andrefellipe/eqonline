@@ -1,0 +1,100 @@
+<div class="container border-os header-os">
+	<div class="row align-items-center justify-content-between">
+		<div class="col-sm-auto">
+			<img src="/resources/order/images/logo.png">
+		</div>
+		<div class="col">
+			<h1>Relatório</h1>
+			<h2>Contas a Pagar</h2>
+		</div>
+	</div>
+</div>
+
+<div class="container border-os infos-os">
+
+	<div class="row">
+		<div class="col">
+			<p>Início: <strong>{$infos.dt_rstart}</strong></p>
+		</div>
+		<div class="col">
+			<p>Fim: <strong>{$infos.dt_rfinish}</strong></p>
+		</div>
+		<div class="col">
+			<p>Fornecedor: <strong>{$infos.des_description}</strong></p>
+		</div>
+	</div>
+
+</div>
+
+<table style="width:100%" class="container">
+
+	<tr>
+		<td><strong>FORNECEDOR</strong></td>
+		<td><strong>VENCIMENTO</strong></td>
+		<td><strong>VALOR (R$)</strong></td>
+	</tr>
+
+
+	{loop="$toPay"}
+	<tr>
+		<td>{$value.des_name}</td>
+		<td>{$value.dt_due}</td> 
+		<td>{function="formatPriceComma($value.vl_total)"}</td>
+	</tr>
+	{/loop}
+</table>
+
+<div class="container prices">
+	<p>Total a Pagar: <strong>R$ {function="formatPriceComma($totalPay)"}</strong></p>
+</div>
+
+<div class="pagebreak"> </div>
+
+<div class="container border-os header-os">
+	<div class="row align-items-center justify-content-between">
+		<div class="col-sm-auto">
+			<img src="/resources/order/images/logo.png">
+		</div>
+		<div class="col">
+			<h1>Relatório</h1>
+			<h2>Contas Pagas</h2>
+		</div>
+	</div>
+</div>
+
+<div class="container border-os infos-os">
+
+	<div class="row">
+		<div class="col">
+			<p>Início: <strong>{$infos.dt_rstart}</strong></p>
+		</div>
+		<div class="col">
+			<p>Fim: <strong>{$infos.dt_rfinish}</strong></p>
+		</div>
+		<div class="col">
+			<p>Fornecedor: <strong>{$infos.des_description}</strong></p>
+		</div>
+	</div>
+
+</div>
+
+<table style="width:100%" class="container">
+
+	<tr>
+		<td><strong>FORNECEDOR</strong></td>
+		<td><strong>VENCIMENTO</strong></td>
+		<td><strong>VALOR (R$)</strong></td>
+	</tr>
+
+	{loop="$paid"}
+	<tr>
+		<td>{$value.des_name}</td>
+		<td>{$value.dt_due}</td> 
+		<td>{function="formatPriceComma($value.vl_total)"}</td>
+	</tr>
+	{/loop}
+</table>
+
+<div class="container prices">
+	<p>Total Pago: <strong>R$ {function="formatPriceComma($totalPaid)"}</strong></p>
+</div>

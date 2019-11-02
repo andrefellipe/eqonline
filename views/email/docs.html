@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="utf-8">
+
+	<title>E&Q Online</title>
+
+	<style>
+		
+		table, th, td {
+			border: 1px solid black;
+			text-align: center;
+		}
+
+	</style>
+</head>
+<body>
+
+	<h3>Seguem abaixo os documentos dos funcionários da E&Q:</h3>
+
+	<table>
+
+		<thead>
+			<tr>
+				<th>Nome</th>
+				<th>Documento</th>
+				<th>Data de Vencimento</th>
+				<th>Dias Restantes</th>
+			</tr>
+		</thead>
+
+		<tbody>
+
+			{loop="$docs"}
+			<tr>
+				<td>{$value.des_name}</td>
+				<td>{$value.des_doc_name}</td>
+				<td>{$value.dt_due}</td>
+				<td>{$value.dt_remaining}</td>
+			</tr>
+			{/loop}
+
+		</tbody>
+
+	</table>
+
+</body>
+</html>

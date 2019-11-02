@@ -1,0 +1,76 @@
+<div class="content-wrapper">
+  
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>Preços de Serviços</h1>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="/admin">Início</a></li>
+            <li class="breadcrumb-item"><a href="/admin/proposals">Propostas</a></li>
+            <li class="breadcrumb-item active">Preços de Serviços</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content">
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+
+          <div class="card-header">
+            <a href="/admin/proposals/services/create" class="btn btn-success">Cadastrar Serviço</a>
+          </div>
+
+          {if="$msgError != ''"}
+          <div class="alert alert-danger alert-dismissible" style="margin:10px">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <p>{$msgError}</p>
+          </div>
+          {/if}
+          {if="$msgSuccess != ''"}
+          <div class="alert alert-info alert-dismissible" style="margin:10px">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <p>{$msgSuccess}</p>
+          </div>
+          {/if}
+
+          <div class="card-body table-responsive">
+            <table id="search-table" class="table table-bordered table-striped">
+
+              <thead>
+                <tr>
+                  <th>Nº</th>
+                  <th>Descrição</th>
+                  <th>Preço (R$)</th>
+                  <th>Opções</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                
+                {loop="$services"}
+                <tr>
+                  <td>{$value.id_service}</td>
+                  <td>{$value.des_description}</td>
+                  <td>{function="formatPriceComma($value.vl_price)"}</td>
+                  <td>
+                    <a href="/admin/proposals/services/{$value.id_service}" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Editar</a>
+                    <a href="/admin/proposals/services/{$value.id_service}/delete" onclick="return confirm('Deseja realmente excluir este serviço?')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Excluir</a>
+                  </td>
+                </tr>
+                {/loop}
+
+              </tbody>
+
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

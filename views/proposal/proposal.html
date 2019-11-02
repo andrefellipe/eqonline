@@ -1,0 +1,68 @@
+<img src="/resources/proposal/images/logo.png">
+
+<p>Proposta nº {$proposal.id_proposal}</p>
+<p>Natal/RN, {$proposal.dt_emission}</p>
+
+<hr>
+<p><strong>{$proposal.des_destination}</strong></p>
+<p>Att. <strong>{$proposal.des_contact}</strong></p>
+<p>{$proposal.des_salutation}</p>
+<p>{$proposal.des_introduction}</p>
+<hr>
+<p class="comercial-border"><strong>PROPOSTA COMERCIAL</strong></p>
+<p><strong>1. Preços</strong></p>
+
+<table style="width:100%">
+
+	<tr>
+		<td><strong>ITEM</strong></td>
+		<td><strong>DESCRIÇÃO</strong></td>
+		<td><strong>QTD</strong></td>
+		<td><strong>UNID.</strong></td>
+		<td><strong>PREÇO UNIT.</strong></td>
+		<td><strong>TOTAL</strong></td>
+	</tr>
+
+
+	{loop="$items"}
+		<tr>
+			<td><strong>{$value.item}</strong></td>
+			<td>{$value.des_description}</td> 
+			<td>{$value.qtd}</td>
+			<td>{$value.unit}</td>
+			<td>{$value.price}</td>
+			<td>{$value.total_price}</td>
+		</tr>
+	{/loop}
+</table>
+
+<p><strong>Total da Cotação: {$proposal.vl_price}</strong></p>
+<p>{$proposal.des_schedule}</p>
+<p>Valor da Proposta: <em>{$proposal.des_price}</em></p>
+
+<p><strong>2. Demais Condições</strong></p>
+
+<table>
+	<tr>
+		<td style="white-space: nowrap"><strong>Condição de Pagamento</strong></td>
+		<td style="width: 100%">{$proposal.des_payment_condition}</td> 
+	</tr>
+	<tr>
+		<td style="white-space: nowrap"><strong>Prazo</strong></td>
+		<td style="width: 100%">{$proposal.des_service_deadline}</td> 
+	</tr>
+	<tr>
+		<td style="white-space: nowrap"><strong>Validade da Proposta</strong></td>
+		<td style="width: 100%">{$proposal.des_proposal_validity}</td> 
+	</tr>
+	<tr>
+		<td style="white-space: nowrap"><strong>Garantia</strong></td>
+		<td style="width: 100%">{$proposal.des_warranty}</td> 
+	</tr>
+</table>
+
+<div class="pagebreak"> </div>
+
+<img src="/resources/proposal/images/logo.png">
+
+<img src="/resources/proposal/images/assinatura.png">

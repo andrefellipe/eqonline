@@ -1,0 +1,77 @@
+<div class="content-wrapper">
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>Abastecimentos</h1>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="/admin">Início</a></li>
+            <li class="breadcrumb-item active">Abastecimentos</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content">
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+
+          <div class="card-header">
+            <a href="/admin/transport/refuels/create" class="btn btn-success">Cadastrar Abastecimento</a>
+            <a href="/admin/transport/refuels/report" class="btn btn-info">Gerar Relatório</a>
+          </div>
+
+          {if="$msgError != ''"}
+          <div class="alert alert-danger alert-dismissible" style="margin:10px">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <p>{$msgError}</p>
+          </div>
+          {/if}
+          {if="$msgSuccess != ''"}
+          <div class="alert alert-info alert-dismissible" style="margin:10px">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <p>{$msgSuccess}</p>
+          </div>
+          {/if}
+
+          <div class="card-body table-responsive">
+            <table id="search-table" class="table table-bordered table-striped">
+
+              <thead>
+                <tr>
+                  <th>Nº</th>
+                  <th>Data</th>
+                  <th>Descrição do veículo</th>
+                  <th>Fornecedor</th>
+                  <th>Opções</th>
+                </tr>
+              </thead>
+
+              <tbody>
+
+                {loop="$refuels"}
+                <tr>
+                  <td>{$value.id_refuel}</td>
+                  <td>{$value.dt_travel}</td>
+                  <td>{$value.des_description}</td>
+                  <td>{$value.des_supplier_name}</td>
+                  <td>
+                    <a href="/admin/transport/refuels/{$value.id_refuel}" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Editar</a>
+                    <a href="/admin/transport/refuels/{$value.id_refuel}/delete" onclick="return confirm('Deseja realmente excluir este abastecimento?')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Excluir</a>
+                  </td>
+                </tr>
+                {/loop}
+
+              </tbody>
+
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

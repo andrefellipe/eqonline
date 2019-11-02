@@ -1,0 +1,260 @@
+/* General Settings */
+body {
+	font-family: 'Raleway', sans-serif;
+	line-height: 1.4;
+}
+
+section, footer {
+	font-family: 'IBM Plex Sans', sans-serif;
+}
+
+h2 {
+	padding: 0.5rem;
+}
+
+h2, h3, h4 {
+	text-align: center;
+}
+
+li {
+	margin-top: 10px;
+}
+
+i {
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+
+/* Navigation items details */
+a.nav-link {
+	font-size: 1.2em;
+	margin-right: 1.2em;
+	font-weight: bold;
+}
+
+/* Navigation bar background color */
+.navbar-custom {
+	background-color: #FFF;
+}
+
+/* Color of the navigation items */
+.navbar-custom .navbar-nav .nav-link {
+	color: #0454A0;
+}
+
+/* Color of the navigation items when active or hovered*/
+.navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+	color: #00c5f3;
+}
+
+/* Jumbotron area */
+.jumbotron {
+	height: 36rem;
+	padding-top: 15rem;
+	text-align: center;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	text-shadow:
+	-1px -1px 0 #000,
+	1px -1px 0 #000,
+	-1px 1px 0 #000,
+	1px 1px 0 #000;
+}
+
+/* Background picture of the jumboton area */
+.background-cabling {
+	background-image: url("../images/cabling.png");
+}
+
+/* Welcome jumbotron customization */
+.welcome a {
+	font-size: 2rem;
+	display: inline-block;
+	-webkit-transform: translate(0, -50%);
+	transform: translate(0, -50%);
+	color: #FFF;
+	letter-spacing: .1em;
+	text-decoration: none;
+	transition: opacity .2s;
+}
+
+.welcome a:hover {
+	opacity: .5;
+}
+
+#section-welcome a {
+	padding-top: 120px;
+}
+
+#section-welcome a span {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 44px;
+	height: 44px;
+	margin-left: -12px;
+	border-left: 4px solid #fff;
+	border-bottom: 4px solid #fff;
+	-webkit-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+	-webkit-animation: sdb07 2s infinite;
+	animation: sdb07 2s infinite;
+	box-sizing: border-box;
+}
+
+#section-welcome a span:nth-of-type(1) {
+	-webkit-animation-delay: 0s;
+	animation-delay: 0s;
+}
+
+#section-welcome a span:nth-of-type(2) {
+	top: 32px;
+	-webkit-animation-delay: .15s;
+	animation-delay: .15s;
+}
+
+#section-welcome a span:nth-of-type(3) {
+	top: 64px;
+	-webkit-animation-delay: .3s;
+	animation-delay: .3s;
+}
+
+@-webkit-keyframes sdb07 {
+	0% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+@keyframes sdb07 {
+	0% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+/* Service box customization */
+.service {
+	border: 1px solid #C5CAD7;
+	text-align: center;
+}
+
+/* Service icon color */
+.fas {
+	color: #0454A0;
+}
+
+/* Carousel left and right icons' dimensions */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+	height: 30px;
+	width: 30px;
+}
+
+/* Carousel images customization */
+.carousel img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 5px;
+}
+
+/* Positioning of the carousel indicators in the projects section */
+#projects .carousel-indicators {
+	bottom: -25px;
+}
+
+/* Text color and background color of the projects and testimonies sections */
+#projects, #testimonies {
+	color: white;
+	background-color: #213355;
+}
+
+/* Alignment of the text of the projects section */
+#projects p {
+	text-align: center;
+}
+
+/* Positioning of the carousel indicators in the clients section */
+#clients .carousel-indicators {
+	bottom: -15px;
+}
+
+/* Positioning of the carousel images in the clients section */
+#carousel-clients .carousel-item img {
+	display: inline-block;
+}
+
+/* Positioning the set of images of the clients carousel in the center of the viewport */
+.center-image-set {
+	display: flex;
+	justify-content: center;
+}
+
+/* Customization of the carousel indicators for the clients carousel */
+#carousel-clients .carousel-indicators li {
+	background-color: #213355;
+}
+
+#testimonies {
+	padding-top: 2rem;
+}
+
+/* Customization of the carousel indicators for the testimonies carousel */
+#testimonies .carousel-indicators {
+	bottom: -20px;
+}
+
+/* Set the size of the div element that contains the map */
+#map {
+	height: 400px;  /* The height is 400 pixels */
+	width: 100%;  /* The width is the width of the web page */
+	margin-bottom: 20px;
+}
+
+#contact {
+	text-align: center;
+}
+
+/* Submit button customization */
+input[type="submit"].button-form {
+	padding: 0.5rem 1rem;
+	color: white;
+	background: #213355;
+	border: 1px #000 solid;
+	box-shadow: inset 0 1px 0 #80B0FB;
+}
+
+input[type="submit"].button-form:hover {
+	border: 1px #2F5BB7 solid;
+	box-shadow: 0 1px 1px #EAEAEA, inset 0 1px 0 #5A94F1;
+	background: #3F83F1;
+}
+
+input[type="submit"].button-form:active {
+	box-shadow: inset 0 2px 5px #2370FE;
+}
+
+/* Footer section */
+footer {
+	background-color: #213355;
+	color: white;
+	text-align: center;
+	padding: 1rem;
+}
+
+/* Footer section link color */
+footer a {
+	color: inherit;
+}

@@ -1,0 +1,367 @@
+<div class="container border-os header-os">
+	<div class="row align-items-center justify-content-between">
+		<div class="col-sm-auto">
+			<img src="/resources/order/images/logo.png">
+		</div>
+		<div class="col-sm-auto">
+			<h2>Departamento de Serviços Técnicos</h2>
+			<h1>Relatório de Saída de Materiais</h1>
+		</div>
+		<div class="col-sm-auto">
+			<h3>O.S.</h3>
+			<hr>
+			<h3>{$order.id_order}</h3>
+		</div>
+	</div>
+</div>
+
+<div class="container border-os infos-os">
+
+	<div class="row">
+		<div class="col">
+			<p>Nome/Razão Social: <strong>{$order.des_client_name}</strong></p>
+		</div>
+		<div class="col">
+			<p>CPF/CNPJ: <strong>{$order.des_CPF}</strong></p>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col">
+			<p>Endereço: <strong>{$order.des_address}</strong></p>
+		</div>
+		<div class="col">
+			<p>Bairro: <strong>{$order.des_neighborhood}</strong></p>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col">
+			<p>Cidade/Estado: <strong>{$order.des_city_state}</strong></p>
+		</div>
+		<div class="col">
+			<p>CEP: <strong>{$order.des_CEP}</strong></p>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col">
+			<p>Celular: <strong>{$order.des_cel_phone}</strong></p>
+		</div>
+		<div class="col">
+			<p>Telefone: <strong>{$order.des_phone}</strong></p>
+		</div>
+	</div>
+
+	<hr>
+
+	<div class="row">
+		<div class="col">
+			<p>Descrição: <strong>{$order.des_description}</strong></p>
+		</div>
+	</div>
+
+	<hr>
+
+	<div class="row">
+		<div class="col">
+			<p>Equipamento: <strong>{$order.des_equipament}</strong></p>
+		</div>
+		<div class="col">
+			<p>Modelo: <strong>{$order.des_model}</strong></p>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col">
+			<p>Número de Série: <strong>{$order.des_number}</strong></p>
+		</div>
+		<div class="col">
+			<p>Solicitante: <strong>{$order.des_solicitor}</strong></p>
+		</div>
+	</div>
+
+	<hr>
+
+	<div class="row">
+		<div class="col">
+			<p>SOLICITADO: <strong>{$order.dt_start}</strong></p>
+		</div>
+		<div class="col">
+			<p>ATENDIDO: <strong>{$order.dt_finish}</strong></p>
+		</div>
+	</div>
+
+</div>
+
+<table style="width:100%" class="container">
+
+	<tr>
+		<td><strong>NOME</strong></td>
+		<td><strong>UNIDADE</strong></td>
+		<td><strong>QUANTIDADE</strong></td>
+		<td><strong>COMPRA (R$)</strong></td>
+		<td><strong>VENDA (R$)</strong></td>
+		<td><strong>TOTAL (R$)</strong></td>
+	</tr>
+
+
+	{loop="$movements"}
+	<tr>
+		<td>{$value.des_description}</td>
+		<td>{$value.des_reduced_measure_unit}</td> 
+		<td>{function="formatPriceComma($value.qtd)"}</td>
+		<td>{function="formatPriceComma($value.vl_purchase_price)"}</td>
+		<td>{function="formatPriceComma($value.vl_sell_price)"}</td>
+		<td>{function="formatPriceComma($value.vl_price)"}</td>
+	</tr>
+	{/loop}
+</table>
+
+<div class="container prices">
+	<p>Material: <strong>R$ {function="formatPriceComma($total.vl_total)"}</strong></p>
+</div>
+
+<div class="pagebreak"> </div>
+
+<div class="container border-os header-os">
+	<div class="row align-items-center justify-content-between">
+		<div class="col-sm-auto">
+			<img src="/resources/order/images/logo.png">
+		</div>
+		<div class="col-sm-auto">
+			<h2>Departamento de Serviços Técnicos</h2>
+			<h1>Relatório de Saída de Materiais</h1>
+		</div>
+		<div class="col-sm-auto">
+			<h3>O.S.</h3>
+			<hr>
+			<h3>{$order.id_order}</h3>
+		</div>
+	</div>
+</div>
+
+<div class="container border-os infos-os">
+
+	<div class="row">
+		<div class="col">
+			<p>Nome/Razão Social: <strong>{$order.des_client_name}</strong></p>
+		</div>
+		<div class="col">
+			<p>CPF/CNPJ: <strong>{$order.des_CPF}</strong></p>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col">
+			<p>Endereço: <strong>{$order.des_address}</strong></p>
+		</div>
+		<div class="col">
+			<p>Bairro: <strong>{$order.des_neighborhood}</strong></p>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col">
+			<p>Cidade/Estado: <strong>{$order.des_city_state}</strong></p>
+		</div>
+		<div class="col">
+			<p>CEP: <strong>{$order.des_CEP}</strong></p>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col">
+			<p>Celular: <strong>{$order.des_cel_phone}</strong></p>
+		</div>
+		<div class="col">
+			<p>Telefone: <strong>{$order.des_phone}</strong></p>
+		</div>
+	</div>
+
+	<hr>
+
+	<div class="row">
+		<div class="col">
+			<p>Descrição: <strong>{$order.des_description}</strong></p>
+		</div>
+	</div>
+
+	<hr>
+
+	<div class="row">
+		<div class="col">
+			<p>Equipamento: <strong>{$order.des_equipament}</strong></p>
+		</div>
+		<div class="col">
+			<p>Modelo: <strong>{$order.des_model}</strong></p>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col">
+			<p>Número de Série: <strong>{$order.des_number}</strong></p>
+		</div>
+		<div class="col">
+			<p>Solicitante: <strong>{$order.des_solicitor}</strong></p>
+		</div>
+	</div>
+
+	<hr>
+
+	<div class="row">
+		<div class="col">
+			<p>SOLICITADO: <strong>{$order.dt_start}</strong></p>
+		</div>
+		<div class="col">
+			<p>ATENDIDO: <strong>{$order.dt_finish}</strong></p>
+		</div>
+	</div>
+
+</div>
+
+<table style="width:100%" class="container">
+
+	<tr>
+		<td><strong>NOME</strong></td>
+		<td><strong>UNIDADE</strong></td>
+		<td><strong>QUANTIDADE</strong></td>
+		<td><strong>VENDA (R$)</strong></td>
+		<td><strong>TOTAL (R$)</strong></td>
+	</tr>
+
+
+	{loop="$movements"}
+	<tr>
+		<td>{$value.des_description}</td>
+		<td>{$value.des_reduced_measure_unit}</td> 
+		<td>{function="formatPriceComma($value.qtd)"}</td>
+		<td>{function="formatPriceComma($value.vl_sell_price)"}</td>
+		<td>{function="formatPriceComma($value.vl_price)"}</td>
+	</tr>
+	{/loop}
+</table>
+
+<div class="container prices">
+	<p>Material: <strong>R$ {function="formatPriceComma($total.vl_total)"}</strong></p>
+</div>
+
+<div class="pagebreak"> </div>
+
+<div class="container border-os header-os">
+	<div class="row align-items-center justify-content-between">
+		<div class="col-sm-auto">
+			<img src="/resources/order/images/logo.png">
+		</div>
+		<div class="col-sm-auto">
+			<h2>Departamento de Serviços Técnicos</h2>
+			<h1>Relatório de Saída de Materiais</h1>
+		</div>
+		<div class="col-sm-auto">
+			<h3>O.S.</h3>
+			<hr>
+			<h3>{$order.id_order}</h3>
+		</div>
+	</div>
+</div>
+
+<div class="container border-os infos-os">
+
+	<div class="row">
+		<div class="col">
+			<p>Nome/Razão Social: <strong>{$order.des_client_name}</strong></p>
+		</div>
+		<div class="col">
+			<p>CPF/CNPJ: <strong>{$order.des_CPF}</strong></p>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col">
+			<p>Endereço: <strong>{$order.des_address}</strong></p>
+		</div>
+		<div class="col">
+			<p>Bairro: <strong>{$order.des_neighborhood}</strong></p>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col">
+			<p>Cidade/Estado: <strong>{$order.des_city_state}</strong></p>
+		</div>
+		<div class="col">
+			<p>CEP: <strong>{$order.des_CEP}</strong></p>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col">
+			<p>Celular: <strong>{$order.des_cel_phone}</strong></p>
+		</div>
+		<div class="col">
+			<p>Telefone: <strong>{$order.des_phone}</strong></p>
+		</div>
+	</div>
+
+	<hr>
+
+	<div class="row">
+		<div class="col">
+			<p>Descrição: <strong>{$order.des_description}</strong></p>
+		</div>
+	</div>
+
+	<hr>
+
+	<div class="row">
+		<div class="col">
+			<p>Equipamento: <strong>{$order.des_equipament}</strong></p>
+		</div>
+		<div class="col">
+			<p>Modelo: <strong>{$order.des_model}</strong></p>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col">
+			<p>Número de Série: <strong>{$order.des_number}</strong></p>
+		</div>
+		<div class="col">
+			<p>Solicitante: <strong>{$order.des_solicitor}</strong></p>
+		</div>
+	</div>
+
+	<hr>
+
+	<div class="row">
+		<div class="col">
+			<p>SOLICITADO: <strong>{$order.dt_start}</strong></p>
+		</div>
+		<div class="col">
+			<p>ATENDIDO: <strong>{$order.dt_finish}</strong></p>
+		</div>
+	</div>
+
+</div>
+
+<table style="width:100%" class="container">
+
+	<tr>
+		<td><strong>NOME</strong></td>
+		<td><strong>UNIDADE</strong></td>
+		<td><strong>QUANTIDADE</strong></td>
+	</tr>
+
+
+	{loop="$movements"}
+	<tr>
+		<td>{$value.des_description}</td>
+		<td>{$value.des_reduced_measure_unit}</td> 
+		<td>{function="formatPriceComma($value.qtd)"}</td>
+	</tr>
+	{/loop}
+</table>
+
+<div class="container prices">
+	<p>Material: <strong>R$ {function="formatPriceComma($total.vl_total)"}</strong></p>
+</div>

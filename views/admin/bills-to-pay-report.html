@@ -1,0 +1,63 @@
+<div class="content-wrapper">
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>Gerar Relatório</h1>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="/admin">Início</a></li>
+            <li class="breadcrumb-item"><a href="/admin/bills/to-pay">Contas a Pagar</a></li>
+            <li class="breadcrumb-item active">Gerar Relatório</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="card card-primary">
+            <div class="card-header">
+              <h3 class="card-title">Informações</h3>
+            </div>
+
+            <form role="form" action="/admin/bills/to-pay/report" method="post">
+              <div class="card-body">
+
+                <div class="form-group">
+                  <label>Início</label>
+                  <input type="date" class="form-control" name="dt_rstart" required />
+                </div>
+
+                <div class="form-group">
+                  <label>Fim</label>
+                  <input type="date" class="form-control" name="dt_rfinish" required />
+                </div>
+
+                <div class="form-group">
+                  <label>Fornecedor</label>
+                  <select class="form-control select2" name="des_description" style="width: 100%">
+                    <option>Total</option>
+                    {loop="$suppliers"}
+                    <option>{$value.des_name}</option>
+                    {/loop}
+                  </select>
+                </div>
+
+              </div>
+
+              <div class="card-footer">
+                <button type="submit" class="btn btn-primary">Gerar Relatório</button>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

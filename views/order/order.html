@@ -1,0 +1,435 @@
+<div class="container border-os header-os">
+	<div class="row align-items-center justify-content-between">
+		<div class="col-sm-auto">
+			<img src="/resources/order/images/logo.png">
+		</div>
+		<div class="col-sm-auto">
+			<h2>Departamento de Serviços Técnicos</h2>
+			<h1>Relatório de Atendimento Técnico</h1>
+		</div>
+		<div class="col-sm-auto">
+			<h3>O.S.</h3>
+			<hr>
+			<h3>{$order.id_order}</h3>
+		</div>
+	</div>
+</div>
+
+<div class="container border-os infos-os">
+
+	<div class="row">
+		<div class="col">
+			<p>Nome/Razão Social: <strong>{$order.des_client_name}</strong></p>
+		</div>
+		<div class="col">
+			<p>CPF/CNPJ: <strong>{$order.des_CPF}</strong></p>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col">
+			<p>Endereço: <strong>{$order.des_address}</strong></p>
+		</div>
+		<div class="col">
+			<p>Bairro: <strong>{$order.des_neighborhood}</strong></p>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col">
+			<p>Cidade/Estado: <strong>{$order.des_city_state}</strong></p>
+		</div>
+		<div class="col">
+			<p>CEP: <strong>{$order.des_CEP}</strong></p>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col">
+			<p>Celular: <strong>{$order.des_cel_phone}</strong></p>
+		</div>
+		<div class="col">
+			<p>Telefone: <strong>{$order.des_phone}</strong></p>
+		</div>
+	</div>
+
+	<hr>
+
+	<div class="row">
+		<div class="col">
+			<p>Descrição: <strong>{$order.des_description}</strong></p>
+		</div>
+	</div>
+
+	<hr>
+
+	<div class="row">
+		<div class="col">
+			<p>Equipamento: <strong>{$order.des_equipament}</strong></p>
+		</div>
+		<div class="col">
+			<p>Modelo: <strong>{$order.des_model}</strong></p>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col">
+			<p>Número de Série: <strong>{$order.des_number}</strong></p>
+		</div>
+		<div class="col">
+			<p>Solicitante: <strong>{$order.des_solicitor}</strong></p>
+		</div>
+	</div>
+
+	<hr>
+
+	<div class="row">
+		<div class="col">
+			<p><strong>GARANTIA (  )</strong></p>
+		</div>
+		<div class="col">
+			<p><strong>PROPOSTA (  )</strong></p>
+		</div>
+		<div class="col">
+			<p><strong>CONTRATO (  )</strong></p>
+		</div>
+		<div class="col">
+			<p><strong>AVULSO (  )</strong></p>
+		</div>
+		<div class="col">
+			<p><strong>ORÇAMENTO (  )</strong></p>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col">
+			<p>SOLICITADO: <strong>{$order.dt_start}</strong></p>
+		</div>
+		<div class="col">
+			<p>ATENDIDO: <strong>{$order.dt_finish}</strong></p>
+		</div>
+	</div>
+
+</div>
+
+<div class="container infos-os">
+	
+	<div class="row">
+		<div class="col-2 cell">
+			<p><strong>Hr. Chegada</strong></p>
+		</div>
+		<div class="col-3 cell">
+			<h5></h5>
+		</div>
+		<div class="col-7 cell">
+			<h5></h5>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-2 cell">
+			<p><strong>Hr. Início</strong></p>
+		</div>
+		<div class="col-3 cell">
+			<h5></h5>
+		</div>
+		<div class="col-7 cell">
+			<h5></h5>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-2 cell">
+			<p><strong>Hr. Término</strong></p>
+		</div>
+		<div class="col-3 cell">
+			<h5></h5>
+		</div>
+		<div class="col-7 cell">
+			<h5></h5>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-2 cell">
+			<p><strong>Hr. Saída</strong></p>
+		</div>
+		<div class="col-3 cell">
+			<h5></h5>
+		</div>
+		<div class="col-7 cell">
+			<h5></h5>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-2 cell">
+			<p><strong>Tot. Desloc</strong></p>
+		</div>
+		<div class="col-3 cell">
+			<h5></h5>
+		</div>
+		<div class="col-7 cell">
+			<h5></h5>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-2 cell">
+			<p><strong>Tot. Reparo</strong></p>
+		</div>
+		<div class="col-3 cell">
+			<h5></h5>
+		</div>
+		<div class="col-7 cell">
+			<h5></h5>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-2 cell">
+			<p><strong>Tot. Geral</strong></p>
+		</div>
+		<div class="col-3 cell">
+			<h5></h5>
+		</div>
+		<div class="col-7 cell">
+			<h5></h5>
+		</div>
+	</div>
+
+</div>
+
+
+<div class="container infos-os">
+	
+	<div class="row">
+		<div class="col-7 cell">
+			<p><strong>Peças Utilizadas</strong></p>
+		</div>
+		<div class="col-1 cell">
+			<p><strong>Qtd.</strong></p>
+		</div>
+		<div class="col-2 cell">
+			<p><strong>Valor</strong></p>
+		</div>
+		<div class="col-2 cell">
+			<p><strong>Total</strong></p>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-7 cell">
+			<h5></h5>
+		</div>
+		<div class="col-1 cell">
+			<h5></h5>
+		</div>
+		<div class="col-2 cell">
+			<h5></h5>
+		</div>
+		<div class="col-2 cell">
+			<h5></h5>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-7 cell">
+			<h5></h5>
+		</div>
+		<div class="col-1 cell">
+			<h5></h5>
+		</div>
+		<div class="col-2 cell">
+			<h5></h5>
+		</div>
+		<div class="col-2 cell">
+			<h5></h5>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-7 cell">
+			<h5></h5>
+		</div>
+		<div class="col-1 cell">
+			<h5></h5>
+		</div>
+		<div class="col-2 cell">
+			<h5></h5>
+		</div>
+		<div class="col-2 cell">
+			<h5></h5>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-7 cell">
+			<h5></h5>
+		</div>
+		<div class="col-1 cell">
+			<h5></h5>
+		</div>
+		<div class="col-2 cell">
+			<h5></h5>
+		</div>
+		<div class="col-2 cell">
+			<h5></h5>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-7 cell">
+			<h5></h5>
+		</div>
+		<div class="col-1 cell">
+			<h5></h5>
+		</div>
+		<div class="col-2 cell">
+			<h5></h5>
+		</div>
+		<div class="col-2 cell">
+			<h5></h5>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-7 cell">
+			<h5></h5>
+		</div>
+		<div class="col-1 cell">
+			<h5></h5>
+		</div>
+		<div class="col-2 cell">
+			<h5></h5>
+		</div>
+		<div class="col-2 cell">
+			<h5></h5>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-7 cell">
+			<h5></h5>
+		</div>
+		<div class="col-1 cell">
+			<h5></h5>
+		</div>
+		<div class="col-2 cell">
+			<h5></h5>
+		</div>
+		<div class="col-2 cell">
+			<h5></h5>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-7 cell">
+			<h5></h5>
+		</div>
+		<div class="col-1 cell">
+			<h5></h5>
+		</div>
+		<div class="col-2 cell">
+			<h5></h5>
+		</div>
+		<div class="col-2 cell">
+			<h5></h5>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-7 cell">
+			<h5></h5>
+		</div>
+		<div class="col-1 cell">
+			<h5></h5>
+		</div>
+		<div class="col-2 cell">
+			<h5></h5>
+		</div>
+		<div class="col-2 cell">
+			<h5></h5>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-7 cell">
+			<h5></h5>
+		</div>
+		<div class="col-1 cell">
+			<h5></h5>
+		</div>
+		<div class="col-2 cell">
+			<h5></h5>
+		</div>
+		<div class="col-2 cell">
+			<h5></h5>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-7 cell">
+			<h5></h5>
+		</div>
+		<div class="col-1 cell">
+			<h5></h5>
+		</div>
+		<div class="col-2 cell">
+			<h5></h5>
+		</div>
+		<div class="col-2 cell">
+			<h5></h5>
+		</div>
+	</div>
+
+</div>
+
+<div class="container infos-os">
+	
+	<div class="row">
+		<div class="col-3 cell">
+			<p><strong>NOME DO TÉCNICO</strong></p>
+		</div>
+		<div class="col-4 cell">
+			<h5></h5>
+		</div>
+		<div class="col-3 cell">
+			<p><strong>TOTAL PEÇAS (R$)</strong></p>
+		</div>
+		<div class="col-2 cell">
+			<h5></h5>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-3 cell">
+			<p><strong>ASSINATURA DO TÉCNICO</strong></p>
+		</div>
+		<div class="col-4 cell">
+			<h5></h5>
+		</div>
+		<div class="col-3 cell">
+			<p><strong>TOTAL DE HORAS (R$)</strong></p>
+		</div>
+		<div class="col-2 cell">
+			<h5></h5>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-3 cell">
+			<p><strong>ASSINATURA DO CLIENTE</strong></p>
+		</div>
+		<div class="col-4 cell">
+			<h5></h5>
+		</div>
+		<div class="col-3 cell">
+			<p><strong>TOTAL GERAL (R$)</strong></p>
+		</div>
+		<div class="col-2 cell">
+			<h5></h5>
+		</div>
+	</div>
+
+</div>

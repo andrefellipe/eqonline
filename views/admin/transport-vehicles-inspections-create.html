@@ -1,0 +1,87 @@
+<div class="content-wrapper">
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>Cadastrar Vistoria</h1>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="/admin">Início</a></li>
+            <li class="breadcrumb-item"><a href="/admin/transport/vehicles">Veículos</a></li>
+            <li class="breadcrumb-item"><a href="/admin/transport/vehicles/{$vehicle.id_vehicle}">{$vehicle.des_description}</a></li>
+            <li class="breadcrumb-item"><a href="/admin/transport/vehicles/{$vehicle.id_vehicle}/inspections">Vistorias</a></li>
+            <li class="breadcrumb-item active">Cadastrar Vistoria</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="card card-primary">
+            <div class="card-header">
+              <h3 class="card-title">Informações</h3>
+            </div>
+            
+            <form role="form" action="/admin/transport/vehicles/{$vehicle.id_vehicle}/inspections/create" method="post">
+              <div class="card-body">
+
+                <div class="form-group">
+                  <label>Data</label>
+                  <input type="date" class="form-control" name="dt_insp" required />
+                </div>
+
+                <div class="form-group">
+                  <label>Código do Veículo</label>
+                  <input type="text" class="form-control" name="id_vehicle" value="{$vehicle.id_vehicle}" readonly>
+                </div>
+
+                <div class="form-group">
+                  <label>Veículo</label>
+                  <input type="text" class="form-control" name="des_description" value="{$vehicle.des_description}" readonly>
+                </div>
+
+                <div class="form-group">
+                  <label>Número de Ferramentas</label>
+                  <input type="text" class="form-control" name="num_tools" value="{$num_tools}" readonly>
+                </div>
+
+                <div class="form-group">
+                  <label>Checklist de Ferramentas</label>
+
+                  {loop="$tools"}
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <input type="checkbox" name="tool_verification[]">
+                      </span>
+                    </div>
+                    <input type="text" class="form-control" value="{$value.des_description}" readonly>
+                    <input type="text" class="form-control" value="{function="formatPriceComma($value.qtd)"}" readonly>
+                  </div>
+                  {/loop}
+
+                </div>
+
+                <div class="form-group">
+                  <label>Observações</label>
+                  <input type="text" class="form-control" name="des_obs">
+                </div>
+
+              </div>
+
+              <div class="card-footer">
+                <button type="submit" class="btn btn-primary">Cadastrar</button>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

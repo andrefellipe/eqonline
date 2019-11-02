@@ -1,0 +1,226 @@
+<div class="content-wrapper">
+
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>Duplicar Proposta</h1>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="/admin">Início</a></li>
+            <li class="breadcrumb-item"><a href="/admin/proposals">Propostas</a></li>
+            <li class="breadcrumb-item active">Duplicar Proposta</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content">
+
+    <div class="container-fluid">
+
+      <div class="row">
+        <div class="col-12">
+          <div class="card card-primary">
+
+            <div class="card-header">
+              <h3 class="card-title">Informações</h3>
+            </div>
+
+            <form role="form" action="/admin/proposals/create" method="post">
+              <div class="card-body">
+
+                <div class="form-group">
+                  <label>Cliente</label>
+                  <select class="form-control select2" name="des_client_name" style="width: 100%;" >
+                    {loop="$clients"}
+                    <option {if="$value.des_name == $proposal.des_client_name"}selected{/if}>{$value.des_name}</option>
+                    {/loop}
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label>Serviço</label>
+                  <input type="text" class="form-control" name="des_service" value="{$proposal.des_service}" placeholder="Descreva o serviço correspondente a essa proposta" required>
+                </div>
+
+                <div class="form-group">
+                  <label>Data da Visita</label>
+                  <input type="date" class="form-control" name="dt_visit" value="{$proposal.dt_visit}" required />
+                </div>
+
+                <div class="form-group">
+                  <label>Data de Emissão</label>
+                  <input type="date" class="form-control" name="dt_emission" value="{$proposal.dt_emission}" required />
+                </div>
+
+                <label>Lista de Materiais (Produto | Preço de Venda (R$) | Quantidade)</label>
+
+                <div class="form-group">
+                  <div class="table-responsive">
+                    <table class="table table-bordered materialColor" id="products_form">
+                      {if="$materialEmpty == 1"}
+                      <tr>
+                        <td>
+                          <select name="des_products_description[]" class="form-control products_select" style="width: 100%">
+                            {loop="$products"}
+                            <option>{$value.des_description}</option>
+                            {/loop}
+                          </select>
+                        </td>
+                        <td><input type="text" name="qtd_material[]" placeholder="Quantidade" class="form-control" required /></td>
+                        <td><button type="button" name="addProduct" id="addProduct" class="btn btn-success">Adicionar</button></td>
+                      </tr>
+                      {/if}
+
+                      {loop="$materials"}
+                      {if="$counter == 0"}
+                      <tr>
+                        <td>
+                          {$product_name = $value.des_products_description}
+                          <select name="des_products_description[]" class="form-control products_select" style="width: 100%">
+                            {loop="$products"}
+                            <option {if="$value.des_description == $product_name"}selected{/if}>{$value.des_description}</option>
+                            {/loop}
+                          </select>
+                        </td>
+                        <td><input type="text" class="form-control" value="{function="formatPriceComma($value.vl_sell_price)"}" readonly /></td>
+                        <td><input type="text" name="qtd_material[]" placeholder="Quantidade" class="form-control" value="{function="formatPriceComma($value.qtd_material)"}" required /></td>
+                        <td><button type="button" name="addProduct" id="addProduct" class="btn btn-success">Adicionar</button></td>
+                      </tr>
+                      {else}
+                      <tr>
+                        <td>
+                          {$product_name = $value.des_products_description}
+                          <select name="des_products_description[]" class="form-control products_select" style="width: 100%">
+                            {loop="$products"}
+                            <option {if="$value.des_description == $product_name"}selected{/if}>{$value.des_description}</option>
+                            {/loop}
+                          </select>
+                        </td>
+                        <td><input type="text" class="form-control" value="{function="formatPriceComma($value.vl_sell_price)"}" readonly /></td>
+                        <td><input type="text" name="qtd_material[]" placeholder="Quantidade" class="form-control" value="{function="formatPriceComma($value.qtd_material)"}" required /></td>
+                        <td><button type="button" name="remove" id="{$counter}" class="btn btn-danger btn_removeProduct"
+                          onclick="return alert('Para excluir o material, basta alterar o campo Quantidade para 0.')">X</button></td>
+                        </tr>
+                        {/if}
+                        {/loop}
+                      </table>
+                    </div>
+                  </div>
+
+                  <label>Lista de Serviços (Serviço | Preço (R$) | Quantidade)</label>
+
+                  <div class="form-group">
+                    <div class="table-responsive">
+                      <table class="table table-bordered serviceColor" id="services_form">
+
+                        {if="$serviceEmpty == 1"}
+                        <tr>
+                          <td>
+                            <select name="des_services_description[]" class="form-control services_select" style="width: 100%">
+                              {loop="$services"}
+                              <option>{$value.des_description}</option>
+                              {/loop}
+                            </select>
+                          </td>
+                          <td><input type="text" name="qtd_service[]" placeholder="Quantidade" class="form-control" required /></td>
+                          <td><button type="button" name="addService" id="addService" class="btn btn-success">Adicionar</button></td>
+                        </tr>
+                        {/if}
+
+                        {loop="$servicesp"}
+                        {if="$counter == 0"}
+                        <tr>
+                          <td>
+                            {$service_name = $value.des_services_description}
+                            <select name="des_services_description[]" class="form-control services_select" style="width: 100%">
+                              {loop="$services"}
+                              <option {if="$value.des_description == $service_name"}selected{/if}>{$value.des_description}</option>
+                              {/loop}
+                            </select>
+                          </td>
+                          <td><input type="text" class="form-control" value="{function="formatPriceComma($value.vl_price)"}" readonly /></td>
+                          <td><input type="text" name="qtd_service[]" placeholder="Quantidade" class="form-control" value="{function="formatPriceComma($value.qtd_service)"}" required /></td>
+                          <td><button type="button" name="addService" id="addService" class="btn btn-success">Adicionar</button></td>
+                        </tr>
+                        {else}
+                        <tr>
+                          <td>
+                            {$service_name = $value.des_services_description}
+                            <select name="des_services_description[]" class="form-control services_select" style="width: 100%">
+                              {loop="$services"}
+                              <option {if="$value.des_description == $service_name"}selected{/if}>{$value.des_description}</option>
+                              {/loop}
+                            </select>
+                          </td>
+                          <td><input type="text" class="form-control" value="{function="formatPriceComma($value.vl_price)"}" readonly /></td>
+                          <td><input type="text" name="qtd_service[]" placeholder="Quantidade" class="form-control" value="{function="formatPriceComma($value.qtd_service)"}" required /></td>
+                          <td><button type="button" name="remove" id="{$counter}" class="btn btn-danger btn_removeService"
+                            onclick="return alert('Para excluir o serviço, basta alterar o campo Quantidade para 0.')">X</button></td>
+                          </tr>
+                          {/if}
+                          {/loop}
+                        </table>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label>Total de Material (R$)</label>
+                      <input type="text" class="form-control" name="vl_material" value="{function="formatPriceComma($proposal.vl_material)"}" readonly>
+                    </div>
+
+                    <div class="form-group">
+                      <label>Total de Serviço (R$)</label>
+                      <input type="text" class="form-control" name="vl_service" value="{function="formatPriceComma($proposal.vl_service)"}" readonly>
+                    </div>
+
+                    <div class="form-group">
+                      <label>Fator de Compra (%)</label>
+                      <input type="text" class="form-control" name="fct_buy" value="{function="formatPriceComma($proposal.fct_buy)"}" placeholder="Defina o fator de compra" required>
+                    </div>
+
+                    <div class="form-group">
+                      <label>Fator de Risco (%)</label>
+                      <input type="text" class="form-control" name="fct_risk" value="{function="formatPriceComma($proposal.fct_risk)"}" placeholder="Defina o fator de risco" required>
+                    </div>
+
+                    <div class="form-group">
+                      <label>Total de Material com Fator de Compra (R$)</label>
+                      <input type="text" class="form-control" name="vl_material_buy" value="{function="formatPriceComma($proposal.vl_material_buy)"}" readonly>
+                    </div>
+
+                    <div class="form-group">
+                      <label>Total de Serviço com Fator de Risco (R$)</label>
+                      <input type="text" class="form-control" name="vl_service_risk" value="{function="formatPriceComma($proposal.vl_service_risk)"}" readonly>
+                    </div>
+
+                    <div class="form-group">
+                      <label>Total no Horário Comercial (R$)</label>
+                      <input type="text" class="form-control" name="vl_price_commercial" value="{function="formatPriceComma($proposal.vl_price_commercial)"}" readonly>
+                    </div>
+
+                    <div class="form-group">
+                      <label>Total no Horário Não-Comercial (R$)</label>
+                      <input type="text" class="form-control" name="vl_price_non_commercial" value="{function="formatPriceComma($proposal.vl_price_non_commercial)"}" readonly>
+                    </div>
+
+                  </div>
+
+                  <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">Salvar Nova Proposta</button>
+                  </div>
+
+                </form>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+
+    </div>
